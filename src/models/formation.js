@@ -1,12 +1,18 @@
-const Mongoose = require("mongoose");
+import {model, Schema} from "mongoose";
 
-const schema = new Mongoose.Schema(
+const FormationSchema = new Schema(
     {
-        titre: { type: String, required: true },
-        description: { type: String, required: true },
-        date: { type: String, required: true },
-        heure: { type: String, required: true },
-        duree: { type: String, required: true },
-        module: { type: String, required: true },
+        titre_formation: { type: String, required: true },
+        description_formation: { type: String, required: true },
+        duree_formation: { type: String, required: true },
+        image_formation: { type: String, required: true },
+        lien_formation: { type: String, required: true },
+        themes_formation: { 
+            type: String, 
+            enum: ["Définitions et concepts", "Intervention et posture", "Drague, harcèlement ou agression ?", "Accompagner et écouter"], 
+            required: true 
+        },
     }
 );
+
+export default model('Formtaion', FormationSchema);
