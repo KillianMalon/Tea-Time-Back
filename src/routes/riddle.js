@@ -9,5 +9,6 @@ router.get('/getRiddle', jwt.verify, riddle.getRiddleByTitle);
 router.put('/updateRiddle', jwt.verify, riddle.updateRiddle);
 router.delete('/deleteRiddle', jwt.verify, riddle.deleteRiddle);
 router.get('/getAllRiddle', jwt.verify, riddle.getAllRiddle);
+router.get('/getRiddleByTheme', jwt.verify, riddle.getRiddleByTheme);
 
 export default router;

@@ -37,3 +37,9 @@ export async function getAllRiddle(req, res) {
   res.status(200).json({ message: "Énigmes récupérés", riddles });
 }
 
+export async function getRiddleByTheme(req, res) {
+    const  theme  = req.body.theme;
+    const riddles = await RiddleServiceInstance.getRiddleByTheme(theme);
+    res.status(200).json({ message: "Énigmes récupérés", riddles });
+}
+

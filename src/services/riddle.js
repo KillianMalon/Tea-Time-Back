@@ -50,4 +50,12 @@ export default class RiddleService {
         const riddle = await RiddleModel.find();
         return riddle;
     }   
+
+    async getRiddleByTheme(theme) {
+        const riddle = await RiddleModel.find({ themes_riddle: theme });
+        if (!riddle) {
+            throw new NotFound("Énigme introuvable.");
+        }
+        return riddle;
+    }
 }
