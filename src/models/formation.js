@@ -9,10 +9,10 @@ const FormationSchema = new Schema(
         lien_formation: { type: String, required: true },
         themes_formation: { 
             type: String, 
-            enum: ["Définitions et concepts", "Intervention et posture", "Drague, harcèlement ou agression ?", "Accompagner et écouter"], 
+            enum: ["Définitions et concepts", "Intervention et posture", "Drague, harcèlement ou agression ?", "Accompagner et écouter", "L'employée harcelée…", "Les courriels malvenus", "La réunion gênante",], 
             required: true 
         },
     }
 );
 
-export default model('Formtaion', FormationSchema);
+export default model('Formation', FormationSchema);

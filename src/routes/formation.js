@@ -9,5 +9,6 @@ router.get('/getFormationByTitle', jwt.verify, formation.getFormationByTitle);
 router.put('/updateFormation', jwt.verify, formation.updateFormation);
 router.delete('/deleteFormation', jwt.verify, formation.deleteFormation);
 router.get('/getAllFormation', jwt.verify, formation.getAllFormation);
+router.get('/getFormationByTheme', jwt.verify, formation.getFormationsByTheme);
 
 export default router;
