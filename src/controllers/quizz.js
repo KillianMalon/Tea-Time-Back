@@ -27,25 +27,13 @@ export async function updateQuizz(req, res) {
 
 export async function deleteQuizz(req, res) {
   const  title  = req.body.title;
-  const quizz = await QuizzServiceInstance.deleteQuizz({ id });
-  res.status(200).json({ message: "Quizz supprimé", user });
+  await QuizzServiceInstance.deleteQuizz({ title });
+  res.status(200).json({ message: "Quizz supprimé"});
 }
 
 export async function getAllQuizz(req, res) {
   const { id } = req.jwt.data;
-  const user = await QuizzServiceInstance.getAllQuizz({ id });
+  const quizzs = await QuizzServiceInstance.getAllQuizz({ id });
   res.status(200).json({ message: "Quizz récupérés", quizzs });
 }
 
-export async function addQuestion(req, res) {
-  const fields = req.body;
-  await QuizzValidatorInstance.validate(req.body, QuizzValidatorInstance.addQuestion);
-  const quizz = await QuizzServiceInstance.addQuestion({ fields });
-  res.status(200).json({ message: "Question ajouté", quizz });
-}
-
-export async function getQuestionofQuizz(req, res) {
-  const title = req.body.title;
-  const questions = await QuizzServiceInstance.getQuestion({ title });
-  res.status(200).json({ message: "Questions récupérées", user });
-}
