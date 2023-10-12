@@ -1,16 +1,14 @@
-const Mongoose = require("mongoose");
+import {model, Schema} from "mongoose";
 
-const schema = new Mongoose.Schema(
+const UserSchema = new Schema(
   {
-    firstName: { type: String, required: true },
-    lastName: { type: String, required: true },
-    email: { type: String, required: true },
-    phone: { type: String, required: true },
-    password: { type: String, required: true },
-    referant: { type: Boolean, required: true, default: false },
-    referantpicurepath: { type: String, required: true },
+    email_user: { type: String, required: true },
+    phone_user: { type: String, required: true },
+    password_user: { type: String, required: true },
+    referant: { type: Boolean, required: false, default: false },
+    referantPicturePath: { type: String, required: false },
   },
   { timestamps: true }
 );
 
-module.exports = Mongoose.model("User", schema);
+export default model('User', UserSchema);
